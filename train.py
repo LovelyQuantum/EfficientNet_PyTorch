@@ -87,7 +87,7 @@ def init_dataset(dataset_path, batch_size, input_size=224):
 def init_model():
     logging.info("Loading model...")
     with HiddenPrints():
-        model = EfficientNet.from_pretrained("efficientnet-b7")
+        model = EfficientNet.from_pretrained(opts.model_name)
     model._fc = nn.Linear(2560, num_classes, bias=True)
     model._fc.in_features
     logging.info("Done.")
